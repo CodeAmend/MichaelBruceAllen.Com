@@ -3,21 +3,23 @@ import styled from 'styled-components';
 
 import './layout.css';
 
-type Props = {
+type LayoutProps = {
   children: React.ReactNode;
 };
 
 const Wrapper = styled.section`
-  margin: 0 auto;
-  max-width: 960;
-  padding: 0px 1.0875rem 1.45rem;
-  padding-top: 0;
+  width: 100vw;
+  max-width: 100%;
 `;
 
-const Layout: React.FC<Props> = ({ children }: Props) => {
+const Main = styled.main`
+  height: 100vh;
+`;
+
+const Layout: React.FC<LayoutProps> = ({ children }: LayoutProps) => {
   return (
     <Wrapper>
-      <main>{children}</main>
+      <Main>{children}</Main>
       <footer>
         ©{new Date().getFullYear()} Michael Bruce Allen{' '}
       </footer>
