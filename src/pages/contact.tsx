@@ -1,15 +1,15 @@
-import * as React from 'react';
+import React from "react"
 
 import Layout from '../components/layout';
 import SEO from '../components/seo';
-import About from '../components/About';
+import Contact from '../components/Contact'
 
 
 export default () => {
-  return (
+  return(
     <Layout>
-      <SEO title="Home" />
-      <About />
+      <SEO title="Contact" />
+      <Contact />
     </Layout>
   )
-};
+}
