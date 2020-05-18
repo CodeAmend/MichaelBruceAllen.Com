@@ -14,7 +14,7 @@ type Props = {
     content: any[];
     data: any;
   };
-  className: string;
+  className?: string;
 };
 
 function getObjectKeyArray(obj: any): string[] {
