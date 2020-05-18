@@ -14,6 +14,7 @@ type Props = {
     content: any[];
     data: any;
   };
+  className: string;
 };
 
 function getObjectKeyArray(obj: any): string[] {
@@ -25,7 +26,7 @@ function getObjectKeyArray(obj: any): string[] {
   return arr;
 }
 
-const ContentfulRichText: React.FC<Props> = ({ document }: Props) => {
+const ContentfulRichText: React.FC<Props> = ({ document, className }: Props) => {
   const options: Options = {
     renderNode: {
       [BLOCKS.EMBEDDED_ASSET]: node => {
@@ -43,6 +44,6 @@ const ContentfulRichText: React.FC<Props> = ({ document }: Props) => {
       },
     },
   };
-  return <div>{documentToReactComponents(document, options)}</div>;
+  return <div className={className}>{documentToReactComponents(document, options)}</div>;
 };
 export default ContentfulRichText;
