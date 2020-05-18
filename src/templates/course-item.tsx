@@ -1,20 +1,21 @@
 import React from "react";
-import { ContentfulSkill } from '../../types/graphql-types';
-import { TemplateProps } from './types';
-
 import ContentfulRichText from '../components/contentfulRichText';
+import { TemplateProps } from "./types";
+import { ContentfulCourse as CCourse } from '../../types/graphql-types';
+
 import { Wrapper } from './styles'
 import Layout from "../components/layout";
 
 
-const SkillItemTemplate: React.FC<TemplateProps<ContentfulSkill>> = ({ pageContext }: TemplateProps<ContentfulSkill>) => {
-  const { name, category, summary } = pageContext.node;
+const SkillItemTemplate: React.FC<TemplateProps<CCourse>> = ({ pageContext }: TemplateProps<CCourse>) => {
+  const { name, summary, bullets } = pageContext.node;
+
+  console.log(bullets)
 
   return (
     <Layout>
       <Wrapper>
         <h2>{name}</h2>
-        <p>{category}</p>
 
         <ContentfulRichText
           className="skill"
@@ -27,3 +28,4 @@ const SkillItemTemplate: React.FC<TemplateProps<ContentfulSkill>> = ({ pageConte
 }
 
 export default SkillItemTemplate;
+

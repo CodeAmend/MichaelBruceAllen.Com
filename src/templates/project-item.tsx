@@ -1,22 +1,14 @@
 import React from "react";
 import { Link } from 'gatsby';
-import { PageProps } from "gatsby";
 import { ContentfulProject } from '../../types/graphql-types';
-import ContentfulRichText from '../components/contentfulRichText';
+import { TemplateProps } from './types';
 
+import ContentfulRichText from '../components/contentfulRichText';
 import { Wrapper } from './styles'
 import Layout from "../components/layout";
 
 
-interface ProjectPageProps extends PageProps {
-  pageContext: {
-    prev: ContentfulProject | null;
-    next: ContentfulProject | null;
-    node: ContentfulProject;
-  }
-}
-
-const ProjectItemTemplate: React.FC<ProjectPageProps> = ({ pageContext }: ProjectPageProps) => {
+const ProjectItemTemplate: React.FC<TemplateProps<ContentfulProject>> = ({ pageContext }: TemplateProps<ContentfulProject>) => {
   const { name, github, projectUrl, summary, skills } = pageContext.node;
 
   return (
