@@ -9,9 +9,6 @@ module.exports = {
   plugins: [
     {
       resolve: `gatsby-plugin-typescript`,
-      options: {
-        isTSX: true,
-      }
     },
 
     `gatsby-plugin-react-helmet`,
