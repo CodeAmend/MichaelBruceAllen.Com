@@ -13,7 +13,7 @@ const CourseComponent: React.FC<NodeProps<CCourse>> = ({ nodes }: NodeProps<CCou
       <h1>Courses</h1>
       <Items>
         {nodes.map((course: CCourse) => (
-          <Link key={course.id} to={`/projects/${course.slug}`}>
+          <Link key={course.id} to={`/courses/${course.slug}`}>
             <Item key={course.id}>
               <h3>{course.name}</h3>
               <ContentfulRichText

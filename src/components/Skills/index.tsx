@@ -13,7 +13,7 @@ const SkillsComponent: React.FC<NodeProps<CSkill>> = ({ nodes }: NodeProps<CSkil
       <h1>Skills</h1>
       <Items>
         {nodes.map((skill: CSkill) => (
-          <Link key={skill.id} to={`/projects/${skill.slug}`}>
+          <Link key={skill.id} to={`/skills/${skill.slug}`}>
             <Item key={skill.id}>
               <h3>{skill.name}</h3>
               <ContentfulRichText
