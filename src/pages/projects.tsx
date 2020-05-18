@@ -1,10 +1,10 @@
 import React from "react"
 import { graphql } from 'gatsby';
+import { Query } from '../../types/graphql-types';
 
 import Layout from '../components/layout';
 import SEO from '../components/seo';
 import Projects from '../components/Projects'
-import { Query } from '../../types/graphql-types';
 
 
 export default ({ data }: { data: Query }) => (
