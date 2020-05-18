@@ -4,17 +4,13 @@ import { graphql } from 'gatsby';
 import Layout from '../components/layout';
 import SEO from '../components/seo';
 import Projects from '../components/Projects'
-import { AllProjectsQuery } from '../../types/graphql-types';
+import { Query } from '../../types/graphql-types';
 
 
-type AllProjectsProps = {
-  data: AllProjectsQuery;
-}
-
-export default ({ data }: AllProjectsProps) => (
+export default ({ data }: { data: Query }) => (
  <Layout>
     <SEO title="Projects" />
-    <Projects projects={data.allContentfulProject.nodes} />
+    <Projects nodes={data.allContentfulProject.nodes} />
   </Layout>
 )
 
