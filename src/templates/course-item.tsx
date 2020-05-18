@@ -7,18 +7,24 @@ import { Wrapper } from './styles'
 import Layout from "../components/layout";
 
 
-const SkillItemTemplate: React.FC<TemplateProps<CCourse>> = ({ pageContext }: TemplateProps<CCourse>) => {
+const CourseItemTemplate: React.FC<TemplateProps<CCourse>> = ({ pageContext }: TemplateProps<CCourse>) => {
   const { name, summary, bullets } = pageContext.node;
-
-  console.log(bullets)
 
   return (
     <Layout>
       <Wrapper>
         <h2>{name}</h2>
 
+        <ul>
+          {bullets.map(bullet => (
+            <li key={bullet}>* {bullet}</li>
+          ))}
+        </ul>
+
+        <br />
+
         <ContentfulRichText
-          className="skill"
+          className="Course"
           document={summary?.json}
         />
 
@@ -27,5 +33,5 @@ const SkillItemTemplate: React.FC<TemplateProps<CCourse>> = ({ pageContext }: Te
   );
 }
 
-export default SkillItemTemplate;
+export default CourseItemTemplate;
 

@@ -61,4 +61,33 @@ exports.createPages = async ({ graphql, actions }) => {
       }
     });
   });
+
+
+
+  /*************
+   *  Courses  *
+   *************/
+  const courseItemTemplate = path.resolve(`src/templates/course-item.tsx`);
+  const courseQuery = await graphql(query.data.course);
+  const courses = courseQuery.data.allContentfulCourse.edges;
+
+  courses.forEach(({ node }, i) => {
+    const next = i === courses.length - 1
+      ? null
+      : courses[i + 1].node;
+
+    const prev = i === 0
+      ? null
+      : courses[i - 1].node;
+
+    createPage({
+      path: `/courses/${node.slug}`,
+      component: courseItemTemplate,
+      context: {
+        prev,
+        next,
+        node,
+      }
+    });
+  });
 }

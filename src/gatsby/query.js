@@ -37,4 +37,20 @@ module.exports.data = {
       }
     }
   }`,
+  course: ` {
+    allContentfulCourse {
+      edges {
+        node {
+          id
+          name
+          slug
+          bullets
+
+          summary {
+            json
+          }
+        }
+      }
+    }
+  }`,
 }
