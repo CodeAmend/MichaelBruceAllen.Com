@@ -22,4 +22,19 @@ module.exports.data = {
       }
     }
   }`,
+  skill: ` {
+    allContentfulSkill {
+      edges {
+        node {
+          id
+          name
+          slug
+          category
+          summary {
+            json
+          }
+        }
+      }
+    }
+  }`,
 }

@@ -32,4 +32,33 @@ exports.createPages = async ({ graphql, actions }) => {
       }
     });
   });
+
+
+
+  /************
+   *  Skills  *
+   ************/
+  const skillItemTemplate = path.resolve(`src/templates/skill-item.tsx`);
+  const skillQuery = await graphql(query.data.skill);
+  const skills = skillQuery.data.allContentfulSkill.edges;
+
+  skills.forEach(({ node }, i) => {
+    const next = i === skills.length - 1
+      ? null
+      : skills[i + 1].node;
+
+    const prev = i === 0
+      ? null
+      : skills[i - 1].node;
+
+    createPage({
+      path: `/skills/${node.slug}`,
+      component: skillItemTemplate,
+      context: {
+        prev,
+        next,
+        node,
+      }
+    });
+  });
 }

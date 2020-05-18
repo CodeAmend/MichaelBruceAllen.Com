@@ -4,8 +4,8 @@ import { PageProps } from "gatsby";
 import { ContentfulProject } from '../../types/graphql-types';
 import ContentfulRichText from '../components/contentfulRichText';
 
-
 import { Wrapper } from './styles'
+import Layout from "../components/layout";
 
 
 interface ProjectPageProps extends PageProps {
@@ -20,28 +20,29 @@ const ProjectItemTemplate: React.FC<ProjectPageProps> = ({ pageContext }: Projec
   const { name, github, projectUrl, summary, skills } = pageContext.node;
 
   return (
-    <Wrapper>
-      <h2>{name}</h2>
-      <p>{projectUrl}</p>
-      <p>{github}</p>
+    <Layout>
+      <Wrapper>
+        <h2>{name}</h2>
+        <p>{projectUrl}</p>
+        <p>{github}</p>
 
-      <ContentfulRichText
-        className="skills"
-        document={summary?.json}
-      />
+        <ContentfulRichText
+          className="skills"
+          document={summary?.json}
+        />
 
-      <ul>
-      {skills?.map(skill => (
-        <li key={skill?.id}>
-          <Link to={`/skills/${skill?.slug}`}>
-            {skill?.name}
-          </Link>
-        </li>
-      ))}
-      </ul>
-    </Wrapper>
+        <ul>
+        {skills?.map(skill => (
+          <li key={skill?.id}>
+            <Link to={`/skills/${skill?.slug}`}>
+              {skill?.name}
+            </Link>
+          </li>
+        ))}
+        </ul>
+      </Wrapper>
+    </Layout>
   )
-
 }
 
 export default ProjectItemTemplate;
